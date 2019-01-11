@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_examples/pages/page-fab-and-btmbar/page-fab-and-btmbar.dart';
 import 'package:flutter_examples/pages/page-home/page-home.dart';
 import 'package:flutter_examples/pages/page-search/page-search.dart';
 
@@ -36,7 +37,17 @@ class NavDrawer extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => PageSearch()),
               );
             },
-          )
+          ),
+          ListTile(
+            title: Text('Fab and ButtomBar'),
+            leading: new Icon(Icons.account_balance),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => PageFabAndBtmBar()),
+              );
+            },
+          ),
         ],
       ),
       persistentFooterButtons: <Widget>[

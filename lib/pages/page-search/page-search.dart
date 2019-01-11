@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_examples/components/nav-drawer/nav-drawer.dart';
+import 'package:flutter_examples/pages/page-list-checkbox/page-list-checkbox.dart';
 
 class PageSearch extends StatefulWidget {
   @override
@@ -81,7 +82,8 @@ class PageSearchState extends State<PageSearch> {
     List<Item> filteredItems = [];
     print('busqueda $searchText');
     if (searchText.isNotEmpty) {
-      filteredItems = items.where((i) => i.name.contains(_filter.text)).toList();
+      filteredItems =
+          items.where((i) => i.name.contains(_filter.text)).toList();
     } else {
       filteredItems = items;
     }
@@ -93,7 +95,13 @@ class PageSearchState extends State<PageSearch> {
         return ListTile(
           title: Text(item.name),
           subtitle: Text(item.description),
-          onTap: selectItem(index),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => PageListCheckbox()),
+            );
+          },
+          trailing: Icon(Icons.keyboard_arrow_right),
         );
       },
     );
